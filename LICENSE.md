@@ -1,6 +1,6 @@
 ## XPVault Plugin License
 
-**All Rights Reserved © 2025 [Developer/Company Name]**
+**All Rights Reserved © 2025 [فستفي]**
 
 This license is granted for personal use only of the XPVault Plugin. The following are strictly prohibited:
 
@@ -14,13 +14,13 @@ Any violation of these terms will result in immediate termination of the license
 
 By using this plugin, you agree to abide by all the terms and conditions stated above.
 
-For inquiries or permission requests, please contact Discord~[l._.7]
+For inquiries or permission requests, please contact Discord~[ l._.7 ]
 
 ---
 
 ## ترخيص XPVault Plugin
 
-**جميع الحقوق محفوظة © 2025 [اسم المطور/الشركة]**
+**جميع الحقوق محفوظة © 2025 [فستقي]**
 
 يُمنح هذا الترخيص للاستخدام الشخصي فقط لـ XPVault Plugin. يُحظر تمامًا ما يلي:
 
@@ -34,6 +34,6 @@ For inquiries or permission requests, please contact Discord~[l._.7]
 
 باستخدام هذا الـ plugin، فإنك توافق على الالتزام بجميع الشروط والأحكام المذكورة أعلاه.
 
-للاستفسارات أو طلب الأذونات، يرجى التواصل مع l._.7]~discord].
+للاستفسارات أو طلب الأذونات، يرجى التواصل مع l._.7 ]~discord ].
 
 
