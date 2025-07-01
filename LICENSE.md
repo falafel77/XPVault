@@ -1,3 +1,23 @@
+## XPVault Plugin License
+
+**All Rights Reserved © 2025 [Developer/Company Name]**
+
+This license is granted for personal use only of the XPVault Plugin. The following are strictly prohibited:
+
+1.  **Decompilation:** Decompiling or reverse-engineering this plugin in any form is strictly prohibited.
+2.  **Redistribution:** Redistribution of this plugin, whether free of charge or for a fee, is prohibited without explicit written permission from the developer.
+3.  **Selling:** Selling this plugin or any part thereof is prohibited.
+4.  **Modification:** Modifying this plugin or creating derivative works from it is prohibited without explicit written permission from the developer.
+5.  **Publication:** Publishing this plugin or making it publicly available by any means is prohibited.
+
+Any violation of these terms will result in immediate termination of the license and legal action.
+
+By using this plugin, you agree to abide by all the terms and conditions stated above.
+
+For inquiries or permission requests, please contact [Your Email/Contact Method].
+
+---
+
 ## ترخيص XPVault Plugin
 
 **جميع الحقوق محفوظة © 2025 [اسم المطور/الشركة]**

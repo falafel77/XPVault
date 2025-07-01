@@ -1,5 +1,54 @@
 # XPVault Plugin
 
+This plugin allows players to save and retrieve their experience points (XP), in addition to administrative commands for managing XP.
+
+## Commands:
+
+### `/savexp <amount>`
+- **Description:** Saves a specified amount of a player's XP.
+- **Usage:** `/savexp <amount>`
+- **Aliases:** `sxp`
+
+### `/givexp <player> <amount>`
+- **Description:** Gives XP to a player.
+- **Usage:** `/givexp <player> <amount>`
+- **Aliases:** `gxp`
+
+### `/retrievexp [amount]`
+- **Description:** Retrieves saved XP for a player. Optionally specify an amount.
+- **Usage:** `/retrievexp [amount]`
+- **Aliases:** `rxp`
+
+### `/adminxp <resetall|set|add|remove> [player] [amount]`
+- **Description:** Administrative commands for managing saved XP.
+- **Usage:** `/adminxp <resetall|set|add|remove> [player] [amount]`
+- **Required Permission:** `xpvault.admin`
+
+### `/checkxp`
+- **Description:** Checks your current XP and stored XP.
+- **Usage:** `/checkxp`
+- **Aliases:** `cxp`
+
+## PlaceholderAPI Support
+
+XPVault currently supports PlaceholderAPI for displaying saved XP. You can use the following variables:
+
+-   `%xpvault_saved_xp%`: To display the player's saved XP.
+
+## Installation
+
+1.  Place the `XPVault-1.0-SNAPSHOT.jar` file in your Minecraft server's `plugins` folder.
+2.  Restart or reload the server.
+3.  (Optional) If you wish to use PlaceholderAPI variables, ensure PlaceholderAPI is installed on your server.
+
+## License
+
+This plugin is protected by a special license that prohibits decompilation, sale, or redistribution without explicit permission from the developer. All rights reserved.
+
+---
+
+# XPVault Plugin (باللغة العربية)
+
 هذا الـ plugin يسمح للاعبين بحفظ واستعادة نقاط الخبرة (XP) الخاصة بهم، بالإضافة إلى أوامر إدارية للتحكم في الخبرة.
 
 ## الأوامر:
@@ -28,9 +77,6 @@
 - **الوصف:** يتحقق من نقاط الخبرة الحالية ونقاط الخبرة المخزنة لديك.
 - **الاستخدام:** `/checkxp`
 - **الأسماء المستعارة:** `cxp`
-
-
-
 
 ## دعم PlaceholderAPI
 
