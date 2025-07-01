@@ -14,7 +14,7 @@ Any violation of these terms will result in immediate termination of the license
 
 By using this plugin, you agree to abide by all the terms and conditions stated above.
 
-For inquiries or permission requests, please contact [Your Email/Contact Method].
+For inquiries or permission requests, please contact Discord~[l._.7]
 
 ---
 
@@ -34,6 +34,6 @@ For inquiries or permission requests, please contact [Your Email/Contact Method]
 
 باستخدام هذا الـ plugin، فإنك توافق على الالتزام بجميع الشروط والأحكام المذكورة أعلاه.
 
-للاستفسارات أو طلب الأذونات، يرجى التواصل مع [بريدك الإلكتروني/طريقة الاتصال].
+للاستفسارات أو طلب الأذونات، يرجى التواصل مع l._.7]~discord].
 
 
