@@ -1,8 +1,0 @@
-com/falafel77/xpvault/api/event/XPRetrievedEvent.class
-com/falafel77/xpvault/api/XPVaultAPIProvider.class
-com/falafel77/xpvault/api/XPVaultAPI.class
-com/falafel77/xpvault/api/event/XPSetEvent.class
-com/falafel77/xpvault/api/event/XPVaultEvent.class
-com/falafel77/xpvault/api/event/EventManager.class
-com/falafel77/xpvault/api/event/XPTransferEvent.class
-com/falafel77/xpvault/api/event/XPSavedEvent.class
