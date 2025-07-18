@@ -7,6 +7,7 @@ import com.falafel77.XPVault.GiveXPTabCompleter;
 import com.falafel77.XPVault.RetrieveXPCommand;
 import com.falafel77.XPVault.RetrieveXPTabCompleter;
 import com.falafel77.XPVault.AdminXPCommand;
+import com.falafel77.xpvault.api.XPVaultAPIProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,6 +25,7 @@ public class XPVault extends JavaPlugin {
 
     private XPManager xpManager;
     private FileConfiguration messagesConfig;
+    private XPVaultAPIImpl apiImpl;
 
     @Override
     public void onEnable() {
@@ -35,6 +37,11 @@ public class XPVault extends JavaPlugin {
             getLogger().warning("Failed to load messages.yml. Plugin messages may not work correctly.");
         }
         this.xpManager = new XPManager(this);
+        
+        // تهيئة XPVault API
+        this.apiImpl = new XPVaultAPIImpl(this);
+        XPVaultAPIProvider.setAPI(apiImpl);
+        getLogger().info("XPVault API has been initialized successfully!");
         
         // Register commands
         registerCommands();
@@ -66,6 +73,13 @@ public class XPVault extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        // إيقاف XPVault API
+        if (apiImpl != null) {
+            apiImpl.shutdown();
+        }
+        XPVaultAPIProvider.setAPI(null);
+        getLogger().info("XPVault API has been shutdown!");
+        
         // Plugin shutdown logic
         unregisterCommands();
         if (messagesConfig != null) {
