@@ -1,0 +1,12 @@
+Copyright © 2025 falafel77. All rights reserved.
+
+XPVault and its source code are the exclusive intellectual property of falafel77.
+
+You are NOT permitted to:
+- Copy, modify, or redistribute this plugin or its source code in any form.
+- Use this plugin or its code in any other project, commercial or non-commercial, without explicit written permission from the author.
+- Publish, sell, or claim ownership of any part of this plugin or its code.
+
+Any unauthorized use, distribution, or modification is strictly prohibited and may result in legal action.
+
+For licensing inquiries or permissions, contact: falafel77
