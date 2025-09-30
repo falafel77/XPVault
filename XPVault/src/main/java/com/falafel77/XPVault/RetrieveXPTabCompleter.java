@@ -45,6 +45,16 @@ public class RetrieveXPTabCompleter implements TabCompleter {
                 if (savedXP >= 10 && !suggestions.contains("10")) suggestions.add("10");
                 if (savedXP >= 100 && !suggestions.contains("100")) suggestions.add("100");
                 if (savedXP >= 1000 && !suggestions.contains("1000")) suggestions.add("1000");
+                if (savedXP >= 10000 && !suggestions.contains("10000")) suggestions.add("10000");
+
+                // Suggest current saved XP and equivalent levels with 'l' suffix
+                if (savedXP > 0) {
+                    suggestions.add(String.valueOf(savedXP));
+                }
+                int savedLevels = Experience.getIntLevelFromExp(savedXP);
+                if (savedLevels > 0) {
+                    suggestions.add(savedLevels + "l");
+                }
             }
             return suggestions.stream()
                     .filter(s -> s.startsWith(args[0]))

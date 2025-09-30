@@ -1,0 +1,57 @@
+############################################################
+# XPVault Plugin Configuration
+############################################################
+
+# List of allowed worlds for XPVault commands
+allowed-worlds:
+  - world
+  - world_nether
+  - world_the_end
+
+# Cooldown settings for each command
+cooldown:
+  enabled: true # Enable/disable global cooldown system
+  commands:
+    CheckXPCommand:
+      enabled: true
+      seconds: 15
+    GiveXPCommand:
+      enabled: true
+      seconds: 15
+    RetrieveXPCommand:
+      enabled: true
+      seconds: 15
+    SaveXPCommand:
+      enabled: true
+      seconds: 15
+    AdminXPCommand:
+      enabled: true
+      seconds: 15
+
+# To disable cooldown for a specific command, set enabled: false
+# To change cooldown time for a command, set seconds to desired value
+# To disable all cooldowns, set cooldown.enabled: false
+
+############################################################
+# Permissions Reference
+############################################################
+# xpvault.use           - Allows using XPVault commands (default for players)
+# xpvault.admin         - Allows using admin commands (/adminxp)
+# xpvault.reload        - Allows reloading the plugin (/xpvaultreload)
+# xpvault.bypasscooldown- Allows bypassing command cooldowns
+# xpvault.checkxp       - Allows using /checkxp
+# xpvault.savexp        - Allows using /savexp
+# xpvault.givexp        - Allows using /givexp
+# xpvault.retrievexp    - Allows using /retrievexp
+
+############################################################
+# PlaceholderAPI Features
+############################################################
+# If PlaceholderAPI is installed, you can use the following placeholders:
+#   %xpvault_savedxp%      - Shows the player's saved XP
+#   %xpvault_savedlevels%  - Shows the player's saved XP as levels
+#   %xpvault_currentxp%    - Shows the player's current XP
+#   %xpvault_currentlevels%- Shows the player's current XP as levels
+# You can use these placeholders in other plugins that support PlaceholderAPI (scoreboards, chat, etc.)
+
+# For more info, visit: https://github.com/falafel77/XPVault

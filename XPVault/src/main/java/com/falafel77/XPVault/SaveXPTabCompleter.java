@@ -24,9 +24,11 @@ public class SaveXPTabCompleter implements TabCompleter {
             List<String> suggestions = new ArrayList<>();
             
             // Suggest common XP amounts
+            // Suggest common XP amounts
             suggestions.add("10");
             suggestions.add("100");
             suggestions.add("1000");
+            suggestions.add("10000");
 
             // Suggest levels that the player can actually save
             int currentLevel = player.getLevel();
@@ -37,6 +39,14 @@ public class SaveXPTabCompleter implements TabCompleter {
                 if (ExperienceUtil.hasEnoughLevels(player, i)) {
                     suggestions.add(i + "l"); // Suggest levels as '1l', '2l', etc.
                 }
+            }
+
+            // Suggest current XP and current level with 'l' suffix
+            if (currentXP > 0) {
+                suggestions.add(String.valueOf(currentXP));
+            }
+            if (currentLevel > 0) {
+                suggestions.add(currentLevel + "l");
             }
 
             return suggestions.stream()

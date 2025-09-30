@@ -89,3 +89,7 @@ stored_levels_message: "&aYour stored levels: &f%stored_levels%"
 
 
 not_enough_xp_saving_what_you_have: "&cYou don't have enough XP to save that amount. Saving your current XP: &f%current_xp%"
+
+
+adminxp_reset_all_not_implemented: "&cResetting all XP is not yet implemented for SQLite. Please contact an administrator."
+

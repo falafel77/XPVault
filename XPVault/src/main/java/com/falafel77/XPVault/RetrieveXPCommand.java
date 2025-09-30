@@ -13,36 +13,46 @@ public class RetrieveXPCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    // Cooldown map for players
+    private static final java.util.Map<java.util.UUID, Long> cooldowns = new java.util.HashMap<>();
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(plugin.getMessage("only_players_can_use_command"));
             return true;
         }
-
         Player player = (Player) sender;
+        // Check allowed worlds
+        if (plugin.getAllowedWorlds() != null && !plugin.getAllowedWorlds().isEmpty() && !plugin.getAllowedWorlds().contains(player.getWorld().getName())) {
+            player.sendMessage("&cThis command is not allowed in this world.");
+            return true;
+        }
+        // Check cooldown
+        if (plugin.isCooldownEnabled() && plugin.isCommandCooldownEnabled("RetrieveXPCommand")) {
+            long now = System.currentTimeMillis();
+            long last = cooldowns.getOrDefault(player.getUniqueId(), 0L);
+            if (now - last < plugin.getCooldownSeconds() * 1000) {
+                long wait = (plugin.getCooldownSeconds() * 1000 - (now - last)) / 1000;
+                player.sendMessage("&cPlease wait " + wait + " seconds before using this command again.");
+                return true;
+            }
+            cooldowns.put(player.getUniqueId(), now);
+        }
         long savedXP = this.plugin.getXpManager().getPlayerSavedXP(player);
-
         if (args.length == 0) {
-            // استعادة كل XP المحفوظ
+            // Retrieve all saved XP
             if (savedXP <= 0) {
                 player.sendMessage(plugin.getMessage("no_saved_xp"));
                 return true;
             }
-
-            // حفظ XP الحالي قبل العملية
             long currentXPBeforeAll = ExperienceUtil.getTotalXP(player);
-            
-            // إضافة XP للاعب باستخدام ExperienceUtil
             ExperienceUtil.changePlayerXP(player, savedXP);
-            
-            // التحقق من المقدار الفعلي المضاف
             long actualXPAfterAll = ExperienceUtil.getTotalXP(player);
             long actualXPRetrievedAll = actualXPAfterAll - currentXPBeforeAll;
             
             // تصفير البنك بناء على المقدار الفعلي المستعاد
-            this.plugin.getXpManager().getCustomConfig().set(player.getUniqueId().toString() + ".xp", savedXP - actualXPRetrievedAll);
-            this.plugin.getXpManager().saveCustomConfig();
+            this.plugin.getXpManager().setPlayerSavedXP(player, savedXP - actualXPRetrievedAll);
             
             player.sendMessage(plugin.getMessage("all_xp_retrieved").replace("%amount%", String.valueOf(actualXPRetrievedAll)));
             return true;
@@ -103,8 +113,7 @@ public class RetrieveXPCommand implements CommandExecutor {
             
             // خصم المقدار الفعلي من البنك
             long newSavedXPPartial = savedXP - actualXPRetrievedPartial;
-            this.plugin.getXpManager().getCustomConfig().set(player.getUniqueId().toString() + ".xp", newSavedXPPartial);
-            this.plugin.getXpManager().saveCustomConfig();
+            this.plugin.getXpManager().setPlayerSavedXP(player, newSavedXPPartial);
 
             if (isLevel) {
                 int levelsEquivalent = Experience.getIntLevelFromExp(actualXPRetrievedPartial);

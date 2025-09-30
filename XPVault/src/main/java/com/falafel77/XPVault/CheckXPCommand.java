@@ -15,6 +15,9 @@ public class CheckXPCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    // Cooldown map for players
+    private static final java.util.Map<java.util.UUID, Long> cooldowns = new java.util.HashMap<>();
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
@@ -23,8 +26,23 @@ public class CheckXPCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-
-        // استخدام Experience.java للحصول على XP الحالي
+        // Check allowed worlds
+        if (plugin.getAllowedWorlds() != null && !plugin.getAllowedWorlds().isEmpty() && !plugin.getAllowedWorlds().contains(player.getWorld().getName())) {
+            player.sendMessage("&cThis command is not allowed in this world.");
+            return true;
+        }
+        // Check cooldown
+        if (plugin.isCooldownEnabled() && plugin.isCommandCooldownEnabled("CheckXPCommand")) {
+            long now = System.currentTimeMillis();
+            long last = cooldowns.getOrDefault(player.getUniqueId(), 0L);
+            if (now - last < plugin.getCooldownSeconds() * 1000) {
+                long wait = (plugin.getCooldownSeconds() * 1000 - (now - last)) / 1000;
+                player.sendMessage("&cPlease wait " + wait + " seconds before using this command again.");
+                return true;
+            }
+            cooldowns.put(player.getUniqueId(), now);
+        }
+        // Get current and stored XP
         long currentXP = Experience.getExp(player);
         long storedXP = xpManager.getPlayerSavedXP(player);
         int storedLevels = Experience.getIntLevelFromExp(storedXP);

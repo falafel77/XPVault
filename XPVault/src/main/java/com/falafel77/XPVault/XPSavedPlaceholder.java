@@ -37,16 +37,32 @@ public class XPSavedPlaceholder extends PlaceholderExpansion {
     }
 
     @Override
-    public String onPlaceholderRequest(Player player, String identifier) {
-        if (player == null) {
-            return "";
-        }
-
-        if (identifier.equals("saved_xp")) {
-            return String.valueOf(plugin.getXpManager().getPlayerSavedXP(player));
-        }
-
-        return null;
+        public String onPlaceholderRequest(Player player, String identifier) {
+            if (player == null) {
+                return "";
+            }
+            // %xpvault_saved_xp%
+            if (identifier.equalsIgnoreCase("saved_xp")) {
+                return String.valueOf(plugin.getXpManager().getPlayerSavedXP(player));
+            }
+            // %xpvault_savedlevels%
+            if (identifier.equalsIgnoreCase("savedlevels")) {
+                long savedXP = plugin.getXpManager().getPlayerSavedXP(player);
+                int levels = Experience.getIntLevelFromExp(savedXP);
+                return String.valueOf(levels);
+            }
+            // %xpvault_currentxp%
+            if (identifier.equalsIgnoreCase("currentxp")) {
+                long currentXP = Experience.getExp(player);
+                return String.valueOf(currentXP);
+            }
+            // %xpvault_currentlevels%
+            if (identifier.equalsIgnoreCase("currentlevels")) {
+                long currentXP = Experience.getExp(player);
+                int levels = Experience.getIntLevelFromExp(currentXP);
+                return String.valueOf(levels);
+            }
+            return null;
     }
 }
 

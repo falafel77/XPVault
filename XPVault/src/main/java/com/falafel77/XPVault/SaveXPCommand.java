@@ -13,27 +13,40 @@ public class SaveXPCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    // Cooldown map for players
+    private static final java.util.Map<java.util.UUID, Long> cooldowns = new java.util.HashMap<>();
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(plugin.getMessage("only_players_can_use_command"));
             return true;
         }
-
         Player player = (Player) sender;
-
+        // Check allowed worlds
+        if (plugin.getAllowedWorlds() != null && !plugin.getAllowedWorlds().isEmpty() && !plugin.getAllowedWorlds().contains(player.getWorld().getName())) {
+            player.sendMessage("&cThis command is not allowed in this world.");
+            return true;
+        }
+        // Check cooldown
+        if (plugin.isCooldownEnabled() && plugin.isCommandCooldownEnabled("SaveXPCommand")) {
+            long now = System.currentTimeMillis();
+            long last = cooldowns.getOrDefault(player.getUniqueId(), 0L);
+            if (now - last < plugin.getCooldownSeconds() * 1000) {
+                long wait = (plugin.getCooldownSeconds() * 1000 - (now - last)) / 1000;
+                player.sendMessage("&cPlease wait " + wait + " seconds before using this command again.");
+                return true;
+            }
+            cooldowns.put(player.getUniqueId(), now);
+        }
         if (args.length < 1) {
             sender.sendMessage(plugin.getMessage("savexp_usage"));
             return true;
         }
-
         String arg = args[0].toLowerCase();
         long amountToSave = 0;
         boolean isLevel = false;
-
-        // الحصول على XP الحالي للاعب باستخدام Experience.java
         long currentXP = Experience.getExp(player);
-
         if (arg.endsWith("l")) {
             isLevel = true;
             try {
@@ -93,8 +106,7 @@ public class SaveXPCommand implements CommandExecutor {
 
         // حفظ المقدار الفعلي في البنك
         long savedXP = this.plugin.getXpManager().getPlayerSavedXP(player);
-        this.plugin.getXpManager().getCustomConfig().set(player.getUniqueId().toString() + ".xp", savedXP + actualXPSaved);
-        this.plugin.getXpManager().saveCustomConfig();
+        this.plugin.getXpManager().setPlayerSavedXP(player, savedXP + actualXPSaved);
 
         if (isLevel) {
             int levelsEquivalent = Experience.getIntLevelFromExp(actualXPSaved);
