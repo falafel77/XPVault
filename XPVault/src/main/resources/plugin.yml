@@ -1,5 +1,5 @@
 name: XPVault
-version: 1.3
+version: 1.7
 main: com.falafel77.XPVault.XPVault
 api-version: 1.13
 libraries:
