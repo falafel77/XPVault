@@ -1,0 +1,49 @@
+package com.falafel77.XPVault;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class GiveXPTabCompleter implements TabCompleter {
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            // Suggest player names for the first argument
+            return Bukkit.getOnlinePlayers().stream()
+                    .map(Player::getName)
+                    .filter(name -> name.toLowerCase().startsWith(args[0].toLowerCase()))
+                    .collect(Collectors.toList());
+        } else if (args.length == 2) {
+            // Suggest common XP amounts and levels for the second argument
+            List<String> amounts = new ArrayList<>();
+            
+            // XP amounts
+            amounts.add("10");
+            amounts.add("100");
+            amounts.add("500");
+            amounts.add("1000");
+            amounts.add("5000");
+            amounts.add("10000");
+            
+            // Level amounts
+            amounts.add("1l");
+            amounts.add("5l");
+            amounts.add("10l");
+            amounts.add("20l");
+            amounts.add("50l");
+            amounts.add("100l");
+            
+            return amounts.stream()
+                    .filter(amount -> amount.toLowerCase().startsWith(args[1].toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
+    }
+}
