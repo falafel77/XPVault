@@ -1,0 +1,124 @@
+plugin_enabled: "&aXPVault has been enabled!"
+plugin_disabled: "&XPVault has been disabled!"
+xp_saved: "&aYour XP has been saved!"
+xp_retrieved: "&aYour XP has been retrieved!"
+player_not_found: "&cPlayer not found!"
+invalid_amount: "&cInvalid XP amount!"
+xp_given: "&aSuccessfully gave %amount% XP to %player%!"
+not_enough_xp: "&cYou don't have enough XP to save!"
+
+
+
+
+only_players_can_use_command: "&cOnly players can use this command."
+savexp_usage: "&cUsage: /savexp <amount>"
+amount_must_be_number: "&cAmount must be a number."
+amount_must_be_positive: "&cAmount must be a positive number."
+
+
+
+
+givexp_usage: "&cUsage: /givexp <player> <amount>"
+not_enough_xp_to_give: "&cYou don't have enough XP to give that amount. You have %current_xp% XP."
+xp_given_sender: "&aYou gave %amount% XP to %player%. Your current XP: %current_xp%"
+xp_given_console: "&aGiving XP from console/command block does not deduct XP from anyone."
+xp_received: "&aYou have received %amount% XP from %sender%."
+
+
+
+
+no_saved_xp: "&cYou have no saved XP to retrieve."
+all_xp_retrieved: "&aYou have retrieved all %amount% XP."
+not_enough_saved_xp: "&cYou only have %saved_xp% saved XP. You cannot retrieve %amount% XP."
+partial_xp_retrieved: "&aYou have retrieved %amount% XP. Remaining saved XP: %remaining_xp%"
+retrievexp_usage: "&cUsage: /retrievexp [amount]"
+
+
+
+
+displayxp_message: "&aYour saved XP is now displayed on the scoreboard: %saved_xp%"
+
+
+
+
+no_permission: "&cYou do not have permission to use this command."
+adminxp_usage: "&cUsage: /adminxp <resetall|set|add|remove> [player] [amount]"
+adminxp_reset_all_usage: "&cUsage: /adminxp resetall"
+adminxp_reset_all_success: "&aSuccessfully reset all saved XP for all players."
+adminxp_player_usage: "&cUsage: /adminxp <set|add|remove> <player> <amount>"
+adminxp_player_success: "&aSuccessfully %action% %amount% XP for %player%. New XP: %new_xp%"
+
+
+
+
+current_xp_message: "&aYour current XP: &f%current_xp%"
+stored_xp_message: "&aYour stored XP: &f%stored_xp%"
+no_permission: "&cYou do not have permission to use this command."
+givexp_usage: "&cUsage: /givexp <player> <amount>"
+not_enot_enough_xp_to_give: "&cYou don\\'t have enough XP to give! Your current XP: &f%current_xp%"
+xp_given_sender: "&aYou gave &f%amount% &aXP to &f%player%&a! Your current XP: &f%current_xp%"
+xp_given_console: "&aYou gave &f%amount% &aXP to &f%player%&a!"
+xp_received: "&aYou received &f%amount% &aXP from &f%sender%&a!"
+no_saved_xp: "&cYou have no saved XP."
+all_xp_retrieved: "&aAll &f%amount% &aXP retrieved!"
+partial_xp_retrieved: "&aRetrieved &f%amount% &aXP. Remaining saved XP: &f%remaining_xp%"
+retrievexp_usage: "&cUsage: /retrievexp [amount]"
+not_enough_saved_xp: "&cYou only have &f%saved_xp% &csaved XP. You tried to retrieve &f%amount%&c."
+adminxp_usage: "&cUsage: /adminxp <set|add|remove|resetall> [player] [amount]"
+adminxp_reset_all_success: "&aAll player XP data has been reset."
+adminxp_reset_all_usage: "&cUsage: /adminxp resetall"
+adminxp_player_usage: "&cUsage: /adminxp <set|add|remove> <player> <amount>"
+adminxp_player_success: "&aSuccessfully &f%action% &f%amount% &aXP for &f%player%&a. New saved XP: &f%new_xp%"
+
+
+
+partial_xp_retrieved_levels: "&aRetrieved &f%levels% &alevels (&f%amount% &aXP). Remaining saved XP: &f%remaining_xp%"
+
+
+
+xp_levels_saved: "&aYou saved &f%levels% &alevels (&f%amount% &aXP). Your current XP: &f%current_xp%"
+
+
+
+current_level_message: "&aYour current level: &f%current_level%"
+
+
+
+stored_levels_message: "&aYour stored levels: &f%stored_levels%"
+
+
+
+not_enough_xp_saving_what_you_have: "&cYou don't have enough XP to save that amount. Saving your current XP: &f%current_xp%"
+
+
+adminxp_reset_all_not_implemented: "&cResetting all XP is not yet implemented for SQLite. Please contact an administrator."
+
+# رسائل XPVault مع دعم Placeholders
+
+plugin_enabled: "&aXPVault has been enabled!"
+xp_saved: "&aYour XP has been saved!"
+xp_given: "&aSuccessfully gave %amount% XP to %player%!"
+xp_retrieved: "&aYou retrieved %amount% XP from your vault."
+adminxp_player_success: "&a%action% %amount% XP for %player%. New saved XP: %new_xp%"
+
+# أمثلة لاستخدام Placeholders في لوحة النتائج (Scoreboard)
+scoreboard_lines:
+  - "&aStored XP: &f%xpvault_saved_xp%"
+  - "&aStored Levels: &f%xpvault_savedlevels%"
+  - "&aCurrent XP: &f%xpvault_currentxp%"
+  - "&aCurrent Levels: &f%xpvault_currentlevels%"
+
+# توضيح Placeholders المدعومة:
+placeholders:
+  xpvault_saved_xp: "Amount of XP saved in the player's vault"
+  xpvault_savedlevels: "Number of levels saved in the vault"
+  xpvault_currentxp: "Player's current XP"
+  xpvault_currentlevels: "Player's current XP level"
+  player: "Target player name"
+  amount: "XP amount"
+  current_xp: "Player's current XP"
+  saved_xp: "Player's saved XP"
+  sender: "Player who sent the XP"
+  action: "Action taken (set, add, remove)"
+  new_xp: "New XP value after the action"
+
