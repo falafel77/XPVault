@@ -1,0 +1,9 @@
+# XPVault Configuration
+
+# =========================
+# Worlds where XPVault is enabled
+# =========================
+enabled-worlds:
+  - world
+  - world_nether
+  - world_the_end

@@ -1,0 +1,46 @@
+name: XPVault
+version: 1.7
+main: com.falafel77.XPVault.XPVault
+api-version: 1.13
+libraries:
+  - org.xerial:sqlite-jdbc:3.44.1.0
+softdepend:
+  - PlaceholderAPI
+commands:
+  savexp:
+    description: Saves a specified amount of a player's XP.
+    usage: /savexp <amount>
+    aliases: [sxp]
+  givexp:
+    description: Gives XP to a player.
+    usage: /givexp <player> <amount>
+    aliases: [gxp]
+  retrievexp:
+    description: Retrieves saved XP for a player. Optionally specify an amount.
+    usage: /retrievexp [amount]
+    aliases: [rxp]
+
+
+
+  adminxp:
+    description: Admin commands for managing saved XP.
+    usage: /adminxp <resetall|set|add|remove> [player] [amount]
+    permission: xpvault.admin
+    permission-message: You do not have permission to use this command.
+    aliases: [axp]
+
+
+
+
+  checkxp:
+    description: Checks your current XP and stored XP.
+    usage: /checkxp
+    aliases: [cxp]
+
+
+
+  xpvaultreload:
+    description: Reloads the XPVault plugin configuration.
+    usage: /xpvaultreload
+    permission: xpvault.reload
+    permission-message: You do not have permission to reload the plugin.
